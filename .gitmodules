@@ -1,0 +1,7 @@
+[submodule "urfave/cli"]
+	path = vendor/github.com/urfave/cli
+	url = https://github.com/urfave/cli.git
+	branch = v2
+[submodule "sirupsen/logrus"]
+	path = vendor/github.com/Sirupsen/logrus
+	url = https://github.com/Sirupsen/logrus
