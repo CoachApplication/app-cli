@@ -101,7 +101,7 @@ func main() {
 	app.Authors = []*cli.Author{&cli.Author{Name: "Wunder.IO", Email: "https://github.com/wunderkraut/radi-cli"}}
 
 	/**
-	 * We PrePprocess these global flags in init() in order
+	 * We PreProcess these global flags in init() in order
 	 * to allow the debug and environment to be processed before
 	 * we add operations, however we still add them as global
 	 * flags to the cli app in order to get the UI out of it.
@@ -139,16 +139,15 @@ func main() {
 	workingDir, _ = os.Getwd()
 	settings := MakeLocalAPISettings(workingDir, ctx)
 
-	// Discover the current User
-	DiscoverCurrentUser(&settings)
+	// Discover the current User (paths for the user like ~ and ~/.config/wundertools)
+	DiscoverUser(&settings)
 
-	// Discover paths for the user like ~ and ~/.config/wundertools
-	DiscoverUserPaths(&settings)
-	DiscoverProjectPaths(&settings)
+	// Discover for the project
+	DiscoverProject(&settings)
 
 	// if we have an environment set, then discover it.
 	if environment != "" {
-		DiscoverEnvironmentPath(&settings, environment)
+		DiscoverEnvironment(&settings, environment)
 		log.WithFields(log.Fields{"environment": environment, "config-paths": settings.Paths}).Debug("Enabled specific environment")
 	}
 
@@ -161,8 +160,8 @@ func main() {
 	 * convert to CLI commands.
 	 */
 
-	// Build a local API implementation from the settings
-	local, _ := cli_api.MakeLocalAPI(settings)
+	// Build a local Application implementation from the settings
+	local, _ := cli_api.MakeLocalApp(settings)
 
 	// Get a list of operations from the API
 	localOps := local.Operations()

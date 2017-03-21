@@ -5,6 +5,6 @@ import (
 	"github.com/urfave/cli"
 )
 
-func AppApiOperations(app cli.App, localOps api.Operations, internal bool) error {
+func AppApiOperations(app *cli.App, localOps api.Operations, internal bool) error {
 	return nil
 }
