@@ -1,9 +1,9 @@
 package api
 
 import (
-	coach_api "github.com/james-nesbitt/coach-api"
-	coach_base "github.com/james-nesbitt/coach-base"
-	handler_local "github.com/james-nesbitt/coach-local"
+	coach_api "github.com/CoachApplication/coach-api"
+	coach_base "github.com/CoachApplication/coach-base"
+	handler_local "github.com/CoachApplication/coach-local"
 )
 
 func MakeLocalApp(settings handler_local.Settings) (coach_api.Application, error) {

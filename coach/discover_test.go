@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	handler_local "github.com/james-nesbitt/coach-local"
+	handler_local "github.com/CoachApplication/coach-local"
 	"os"
 	"os/user"
 	"path"

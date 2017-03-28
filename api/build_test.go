@@ -4,7 +4,7 @@ import (
 	"os"
 	"testing"
 
-	handler_local "github.com/james-nesbitt/coach-local"
+	handler_local "github.com/CoachApplication/coach-local"
 )
 
 func makeLocalSettings() handler_local.Settings {

@@ -8,8 +8,8 @@ import (
 	log "github.com/Sirupsen/logrus"
 	"github.com/urfave/cli"
 
-	coachcli "github.com/james-nesbitt/coach-cli"
-	cli_api "github.com/james-nesbitt/coach-cli/api"
+	coachcli "github.com/CoachApplication/coach-cli"
+	cli_api "github.com/CoachApplication/coach-cli/api"
 )
 
 var (

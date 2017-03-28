@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 
-	handler_local "github.com/james-nesbitt/coach-local"
+	handler_local "github.com/CoachApplication/coach-local"
 )
 
 // Construct a LocalAPI by checking some paths for the current user.
