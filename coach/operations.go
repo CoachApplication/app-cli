@@ -1,7 +1,7 @@
 package main
 
 import (
-	api "github.com/CoachApplication/coach-api"
+	api "github.com/CoachApplication/api"
 	"github.com/urfave/cli"
 )
 

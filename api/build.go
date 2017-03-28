@@ -2,9 +2,9 @@ package api
 
 import (
 	"context"
-	coach_api "github.com/CoachApplication/coach-api"
-	coach_base "github.com/CoachApplication/coach-base"
-	handler_local "github.com/CoachApplication/coach-local"
+	coach_api "github.com/CoachApplication/api"
+	coach_base "github.com/CoachApplication/base"
+	handler_local "github.com/CoachApplication/handler-local"
 )
 
 func MakeLocalApp(ctx context.Context, settings handler_local.Settings) (coach_api.Application, error) {

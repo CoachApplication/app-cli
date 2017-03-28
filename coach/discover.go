@@ -5,7 +5,7 @@ import (
 	"os/user"
 	"path"
 
-	handler_local "github.com/CoachApplication/coach-local"
+	handler_local "github.com/CoachApplication/handler-local"
 )
 
 const (

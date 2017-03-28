@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	cli_api "github.com/CoachApplication/coach-cli/api"
+	cli_api "github.com/CoachApplication/cli/api"
 )
 
 func Test_Main(t *testing.T) {

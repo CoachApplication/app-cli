@@ -6,10 +6,10 @@ import (
 	"os"
 
 	log "github.com/Sirupsen/logrus"
-	"github.com/urfave/cli"
+	cli "github.com/urfave/cli"
 
-	coachcli "github.com/CoachApplication/coach-cli"
-	cli_api "github.com/CoachApplication/coach-cli/api"
+	coachcli "github.com/CoachApplication/app-cli"
+	cli_api "github.com/CoachApplication/app-cli/api"
 )
 
 var (
