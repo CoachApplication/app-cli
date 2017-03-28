@@ -161,7 +161,7 @@ func main() {
 	 */
 
 	// Build a local Application implementation from the settings
-	local, _ := cli_api.MakeLocalApp(settings)
+	local, _ := cli_api.MakeLocalApp(ctx, settings)
 
 	// Get a list of operations from the API
 	localOps := local.Operations()
