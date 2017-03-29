@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	cli_api "github.com/CoachApplication/cli/api"
+	cli_api "github.com/CoachApplication/app-cli/api"
 )
 
 func Test_Main(t *testing.T) {
@@ -32,7 +32,7 @@ func Test_Main(t *testing.T) {
 	 */
 
 	// Build a local Application implementation from the settings
-	local, _ := cli_api.MakeLocalApp(settings)
+	local, _ := cli_api.MakeLocalApp(ctx, settings)
 
 	// Get a list of operations from the API
 	localOps := local.Operations()
