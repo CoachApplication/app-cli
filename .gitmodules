@@ -5,3 +5,24 @@
 [submodule "sirupsen/logrus"]
 	path = vendor/github.com/Sirupsen/logrus
 	url = https://github.com/Sirupsen/logrus
+[submodule "vendor/github.com/CoachApplication/api"]
+	path = vendor/github.com/CoachApplication/api
+	url = https://github.com/CoachApplication/api.git
+[submodule "vendor/github.com/CoachApplication/base"]
+	path = vendor/github.com/CoachApplication/base
+	url = https://github.com/CoachApplication/base.git
+[submodule "vendor/github.com/CoachApplication/utils"]
+	path = vendor/github.com/CoachApplication/utils
+	url = https://github.com/CoachApplication/utils.git
+[submodule "vendor/github.com/CoachApplication/config"]
+	path = vendor/github.com/CoachApplication/config
+	url = https://github.com/CoachApplication/config.git
+[submodule "vendor/github.com/CoachApplication/project"]
+	path = vendor/github.com/CoachApplication/project
+	url = https://github.com/CoachApplication/project.git
+[submodule "vendor/github.com/CoachApplication/handler-local"]
+	path = vendor/github.com/CoachApplication/handler-local
+	url = https://github.com/CoachApplication/handler-local.git
+[submodule "vendor/github.com/CoachApplication/handler-dockercli"]
+	path = vendor/github.com/CoachApplication/handler-dockercli
+	url = https://github.com/CoachApplication/handler-dockercli.git
