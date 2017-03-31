@@ -1,0 +1,11 @@
+#!/bin/bash
+#
+# Install the built binary somewhere useful
+#
+# This puts the build result in a useful place,
+# depending on make configuration
+#
+
+echo "  --> Installing last compiled binary (${COACH_BUILD_BINARY_PATH}) to: ${COACH_INSTALL_PATH}"
+
+cp "${COACH_BUILD_BINARY_PATH}" "${COACH_INSTALL_BINARY}"

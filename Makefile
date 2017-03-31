@@ -22,8 +22,8 @@ test:
 binary:
 	${MAKE_SCRIPT} binary
 
-getdeps:
-	${MAKE_SCRIPT} getdeps
+deps:
+	${MAKE_SCRIPT} deps
 
 install:
 	${MAKE_SCRIPT} install
