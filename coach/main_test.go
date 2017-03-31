@@ -37,5 +37,5 @@ func Test_Main(t *testing.T) {
 	// Get a list of operations from the API
 	localOps := local.Operations()
 
-	t.Error(localOps)
+	t.Log(localOps)
 }

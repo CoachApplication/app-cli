@@ -95,10 +95,10 @@ func main() {
 	 * on the current project configuration.
 	 */
 	app := &cli.App{}
-	app.Name = "radi-cli"
-	app.Usage = "Command line interface for Radi API."
+	app.Name = "coach-cli"
+	app.Usage = "Command line interface for Coach API."
 	app.Version = coachcli.VERSION + " (" + coachcli.GITCOMMIT + ")"
-	app.Authors = []*cli.Author{&cli.Author{Name: "Wunder.IO", Email: "https://github.com/wunderkraut/radi-cli"}}
+	app.Authors = []*cli.Author{&cli.Author{Name: "Wunder.IO", Email: "https://github.com/CoachApplication/app-cli"}}
 
 	/**
 	 * We PreProcess these global flags in init() in order
@@ -118,14 +118,14 @@ func main() {
 		cli.Flag(&cli.BoolFlag{
 			Name:        "debug",
 			Usage:       "Enable verbose debugging output",
-			EnvVars:     []string{"RADI_DEBUG"},
+			EnvVars:     []string{"COACH_DEBUG"},
 			Hidden:      false,
 			Destination: &debug,
 		}),
 		cli.Flag(&cli.BoolFlag{
 			Name:        "internal",
 			Usage:       "Enable API components that are considered internal",
-			EnvVars:     []string{"RADI_INTERNAL"},
+			EnvVars:     []string{"COACH_INTERNAL"},
 			Hidden:      false,
 			Destination: &internal,
 		}),

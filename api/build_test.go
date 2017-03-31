@@ -4,7 +4,9 @@ import (
 	"os"
 	"testing"
 
+	"context"
 	handler_local "github.com/CoachApplication/handler-local"
+	"time"
 )
 
 func makeLocalSettings() handler_local.Settings {
@@ -16,9 +18,11 @@ func makeLocalSettings() handler_local.Settings {
 }
 
 func TestMakeLocalApp(t *testing.T) {
+	dur, _ := time.ParseDuration("5s")
+	ctx, _ := context.WithTimeout(context.Background(), dur)
 	settings := makeLocalSettings()
 
-	if _, err := MakeLocalApp(settings); err != nil {
+	if _, err := MakeLocalApp(ctx, settings); err != nil {
 		t.Error("Error occured making an app object", err.Error())
 	}
 
