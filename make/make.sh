@@ -7,6 +7,11 @@ set -e
 #    as it may in some circumstances be sources in an
 #    escalated permission environment
 
+
+if [ -z "$GOPATH" ]; then
+    echo "WARNING: No GOPATH exists in your environment.  Certain components such as TESTs may produce weird errors"
+fi
+
 # We should be determining these automatically somehow?
 export GOOS="${GOOS:-linux}" # Perhaps you would prefer "osx" ?
 export GOARCH="${GOARCH:-amd64}"

@@ -5,15 +5,21 @@ for TARGET in $COACH_GO_TARGETS; do
         echo "---> Running tests in $TARGET"
         cd "$TARGET"
 
-        {
 
-            go test $(go list ./... | grep -v vendor) &&
-            echo "PASS"
+            for PACKAGE in $(go list ./... | grep -v vendor); do
 
-        } || { # catch
-            echo "FAIL"
-        }
+                {
 
+
+
+                    go test $PACKAGE &&
+                    echo "tested [$PACKAGE] : PASS"
+
+                } || { # catch
+                    echo "tested [$PACKAGE] : FAIL"
+                }
+
+            done
 
     )
 done
