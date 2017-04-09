@@ -26,3 +26,6 @@
 [submodule "vendor/github.com/CoachApplication/handler-dockercli"]
 	path = vendor/github.com/CoachApplication/handler-dockercli
 	url = https://github.com/CoachApplication/handler-dockercli.git
+[submodule "vendor/github.com/CoachApplication/command"]
+	path = vendor/github.com/CoachApplication/command
+	url = https://github.com/CoachApplication/command.git
