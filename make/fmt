@@ -18,7 +18,8 @@ for  TARGET in $COACH_GO_TARGETS; do
 	if [ -d "${TARGET}" ]; then
 		echo "      - Formatting ${TARGET}"
 		(
-			${FIND} "${TARGET}" -iname "*.go" -not -path "${TARGET}/vendor/*" -exec $GOFMT -w {} \;
+		    cd ${TARGET}
+			${FIND} . -iname "*.go" -not -path "./vendor/*" -exec ${GOFMT} -w {} \;
 		)
 	fi
 done

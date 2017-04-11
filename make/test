@@ -5,13 +5,9 @@ for TARGET in $COACH_GO_TARGETS; do
         echo "---> Running tests in $TARGET"
         cd "$TARGET"
 
-
             for PACKAGE in $(go list ./... | grep -v vendor); do
 
                 {
-
-
-
                     go test $PACKAGE &&
                     echo "tested [$PACKAGE] : PASS"
 
