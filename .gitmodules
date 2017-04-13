@@ -5,27 +5,36 @@
 [submodule "sirupsen/logrus"]
 	path = vendor/github.com/Sirupsen/logrus
 	url = https://github.com/Sirupsen/logrus
+	branch = master
 [submodule "vendor/github.com/CoachApplication/api"]
 	path = vendor/github.com/CoachApplication/api
 	url = https://github.com/CoachApplication/api.git
+	branch = master
 [submodule "vendor/github.com/CoachApplication/base"]
 	path = vendor/github.com/CoachApplication/base
 	url = https://github.com/CoachApplication/base.git
+	branch = master
 [submodule "vendor/github.com/CoachApplication/utils"]
 	path = vendor/github.com/CoachApplication/utils
 	url = https://github.com/CoachApplication/utils.git
+	branch = master
 [submodule "vendor/github.com/CoachApplication/config"]
 	path = vendor/github.com/CoachApplication/config
 	url = https://github.com/CoachApplication/config.git
+	branch = master
 [submodule "vendor/github.com/CoachApplication/project"]
 	path = vendor/github.com/CoachApplication/project
 	url = https://github.com/CoachApplication/project.git
+	branch = master
 [submodule "vendor/github.com/CoachApplication/handler-local"]
 	path = vendor/github.com/CoachApplication/handler-local
 	url = https://github.com/CoachApplication/handler-local.git
+	branch = master
 [submodule "vendor/github.com/CoachApplication/handler-dockercli"]
 	path = vendor/github.com/CoachApplication/handler-dockercli
 	url = https://github.com/CoachApplication/handler-dockercli.git
+	branch = master
 [submodule "vendor/github.com/CoachApplication/command"]
 	path = vendor/github.com/CoachApplication/command
 	url = https://github.com/CoachApplication/command
+	branch = master
