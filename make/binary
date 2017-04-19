@@ -6,20 +6,32 @@
 # for the target platform, in the configured path.
 #
 
-# Get rid of existing binary
-rm -f "${COACH_BUILD_BINARY_PATH}"
-
 BUILDTIME=$(date --rfc-3339 ns | sed -e 's/ /T/') &> /dev/null
 GITCOMMIT=$(git rev-parse --short HEAD)
+SHOWWARNING="TRUE"
 
-echo "  --> Building ${COACH_BUILD_BINARY_PATH}"
+mkdir -p "${COACH_INSTALL_PATH}"
 
-mkdir -p "${COACH_BUILD_PATH}"
+echo "  --> Building all binary commands in application"
+for TARGET in ${COACH_COMMANDS_PATH}/*; do
+    if [ -d "${TARGET}" ]; then
+        NAME=${TARGET##*/}
+        BUILD_PATH="${COACH_BUILD_PATH}/${NAME}"
+        SOURCE_PATH="${COACH_COMMANDS_PATH}/${NAME}"
+        PKG="${COACH_PKG_ROOT}/${NAME}"
 
-# Build cli binaries
-go build \
-   -p 2 \
-   -v \
-   -ldflags="-w -X ${COACH_PKG}/version.GITCOMMIT=${GITCOMMIT} -X ${COACH_PKG}/version.BUILDTIME=${BUILDTIME} -X ${COACH_PKG}/version.SHOWWARNING=${SHOWWARNING}" \
-   -o "${COACH_BUILD_BINARY_PATH}" \
-   ./coach
+        echo "      - Building $NAME [${TARGET} -> ${BUILD_PATH}]"
+
+        if [ -f "${BUILD_PATH}" ]; then
+            rm "${BUILD_PATH}"
+        fi
+
+        (
+            go build \
+                   -p "$(nproc)" \
+                   -ldflags="-w -X ${PKG}/version.GITCOMMIT=${GITCOMMIT} -X ${PKG}/version.BUILDTIME=${BUILDTIME} -X ${PKG}/version.SHOWWARNING=${SHOWWARNING}" \
+                   -o "${BUILD_PATH}" \
+                   "./${SOURCE_PATH}"
+        )
+    fi
+done

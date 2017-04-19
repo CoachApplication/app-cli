@@ -6,6 +6,18 @@
 # depending on make configuration
 #
 
-echo "  --> Installing last compiled binary (${COACH_BUILD_BINARY_PATH}) to: ${COACH_INSTALL_PATH}"
+echo "  --> Installing compiled binaries"
 
-cp "${COACH_BUILD_BINARY_PATH}" "${COACH_INSTALL_BINARY}"
+for TARGET in ${COACH_COMMANDS_PATH}/*; do
+    if [ -d "${TARGET}" ]; then
+        NAME=${TARGET##*/}
+        BUILD_PATH="${COACH_BUILD_PATH}/${NAME}"
+        INSTALL_PATH="${COACH_INSTALL_PATH}/${NAME}"
+
+        echo "      - Installing $NAME [${BUILD_PATH} -> ${INSTALL_PATH}]"
+
+        (
+            cp "${BUILD_PATH}" "${INSTALL_PATH}"
+        )
+    fi
+done

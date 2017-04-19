@@ -17,14 +17,10 @@ export GOOS="${GOOS:-linux}" # Perhaps you would prefer "osx" ?
 export GOARCH="${GOARCH:-amd64}"
 export GOVERSION="latest"
 
-export COACH_PKG='github.com/CoachApplication/coach-cli'
+export COACH_PKG_ROOT='github.com/CoachApplication/app-cli/'
 export COACH_BUILD_PATH="./bin"
-export COACH_BINARY_NAME="coach"
-
-export COACH_BUILD_BINARY_PATH="${COACH_BUILD_PATH}/${COACH_BINARY_NAME}"
-
 [ -z "${COACH_INSTALL_PATH}" ] && export COACH_INSTALL_PATH="${GOPATH}/bin"
-export COACH_INSTALL_BINARY="${COACH_INSTALL_PATH}/${COACH_BINARY_NAME}"
+export COACH_COMMANDS_PATH="cmd" # each folder in here should be built into a binary
 
 COACH_ROOT="./"
 COACH_DEPS="
