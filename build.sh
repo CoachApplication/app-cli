@@ -57,7 +57,9 @@ docker run --rm -ti \
 
 echo " 
 
-Exited container
+Finished building the application inside the container.  If an error occured
+during the golang compile, then you would have seen it reported above.
+
 "
 
 echo " **** Containerized build complete 
@@ -72,7 +74,7 @@ in ${COACH_BUILD_BINARY_PATH}
 
 export COACH_INSTALL_PATH="/usr/local/bin"
 
-if [ INSTALL == 'ask' ]; then
+if [ "$INSTALL" == 'ask' ]; then
 
     echo " **** Installation
 
@@ -87,14 +89,7 @@ if [ INSTALL == 'ask' ]; then
     case "$yninstall" in
         [Yy]* )
 
-            if [ -w "COACH_INSTALL_PATH" ] ; then
-                export COACH_INSTALL_SUDO=""
-            else
-                export COACH_INSTALL_SUDO="`which sudo`  -E"
-                echo "--> detected that sudo will be required, as you don't have write privilege to the target path"
-            fi
-
-            ${COACH_INSTALL_SUDO} make install
+            INSTALL="yes"
 
             ;;
         *)
@@ -103,4 +98,15 @@ if [ INSTALL == 'ask' ]; then
             ;;
     esac
 
+fi
+
+if [ "$INSTALL" == "yes" ]; then
+    if [ -w "COACH_INSTALL_PATH" ] ; then
+        export COACH_INSTALL_SUDO=""
+    else
+        export COACH_INSTALL_SUDO="`which sudo`  -E"
+        echo "--> detected that sudo will be required, as you don't have write privilege to the target path"
+    fi
+
+    ${COACH_INSTALL_SUDO} make install
 fi

@@ -6,4 +6,4 @@ services:
   - docker
 
 script:
-  - build.sh --automated
+  - sh ./build.sh --automated

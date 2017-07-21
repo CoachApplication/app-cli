@@ -14,4 +14,4 @@ echo "  --> updating vendor dependencies [recursively]"
 	git submodule update --force --init --recursive
 )
 
-echo "  --- Finished dependency update"
+echo "  --- Completed dependency update"
