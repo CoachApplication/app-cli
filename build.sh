@@ -11,6 +11,16 @@
 #  (installs it, but inside the container)
 #
 
+QUIET='no'
+INSTALL='ask'
+
+# @TODO we can make this more advanced.
+if [ $1 == '--automated' ]; then
+  QUIET="yes"
+  INSTALL="no"
+  shift
+fi
+
 source make/.os-detect
 source make/make.sh
 
@@ -62,31 +72,35 @@ in ${COACH_BUILD_BINARY_PATH}
 
 export COACH_INSTALL_PATH="/usr/local/bin"
 
-echo " **** Installation
+if [ INSTALL == 'ask' ]; then
 
-This installer can now install the built binary for you,
-if you don't want to do it manually.
+    echo " **** Installation
 
-The planned installation path is : ${COACH_INSTALL_PATH}
+    This installer can now install the built binary for you,
+    if you don't want to do it manually.
 
-Would you like to me install a binary to that location? (y/n)
-"
-read  yninstall
-case "$yninstall" in
-    [Yy]* )
+    The planned installation path is : ${COACH_INSTALL_PATH}
 
-		if [ -w "COACH_INSTALL_PATH" ] ; then 
-			export COACH_INSTALL_SUDO=""
-		else 
-			export COACH_INSTALL_SUDO="`which sudo`  -E"
-			echo "--> detected that sudo will be required, as you don't have write privilege to the target path"
-		fi
+    Would you like to me install a binary to that location? (y/n)
+    "
+    read  yninstall
+    case "$yninstall" in
+        [Yy]* )
 
-		${COACH_INSTALL_SUDO} make install
+            if [ -w "COACH_INSTALL_PATH" ] ; then
+                export COACH_INSTALL_SUDO=""
+            else
+                export COACH_INSTALL_SUDO="`which sudo`  -E"
+                echo "--> detected that sudo will be required, as you don't have write privilege to the target path"
+            fi
 
-		;;
-    *)
-		echo " "
-		echo "skipped installation"
-		;;
-esac
+            ${COACH_INSTALL_SUDO} make install
+
+            ;;
+        *)
+            echo " "
+            echo "skipped installation"
+            ;;
+    esac
+
+fi
