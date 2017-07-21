@@ -11,8 +11,8 @@
 #  (installs it, but inside the container)
 #
 
-QUIET='no'
-INSTALL='ask'
+QUIET="no"
+INSTALL="ask"
 
 # @TODO we can make this more advanced.
 if [ $1 == '--automated' ]; then
